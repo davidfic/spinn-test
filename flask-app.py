@@ -12,7 +12,7 @@ def test():
 
 @app.route('/third/<name>')
 def third(name):
-    return "hello {{name}}. nice to meet you"
+    return "hello {}. nice to meet you".format(name)
            
 if __name__ == '__main__':
     app.run(debug=True,host='0.0.0.0')
