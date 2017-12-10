@@ -10,7 +10,7 @@ def hello_world():
 def test():
     return 'this is a new test route'
 
-@app.route('/third')
+@app.route('/third/<name>')
 def third(name):
     return "hello {{name}}. nice to meet you"
            
