@@ -1,4 +1,5 @@
 from flask import Flask
+from flask import render_template
 
 app = Flask(__name__)
 
@@ -12,7 +13,7 @@ def test():
 
 @app.route('/third/<name>')
 def third(name):
-    return "hello {}. nice to meet you".format(name)
+    return render_template('hello.html', name=name)
            
 if __name__ == '__main__':
     app.run(debug=True,host='0.0.0.0')
