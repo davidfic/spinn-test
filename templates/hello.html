@@ -1,6 +1,6 @@
-<html>
-  <body>
-    hello there {{name}}
-  </body>
-</html>
-
+{% extends "bootstrap/base.html" %}
+{% block title %}This is my awesome title{% endblock %}
+{% block navbar %}{% endblock %}
+{% block content %}
+<h1>hello there {{name}}</h1>
+{% endblock %}
