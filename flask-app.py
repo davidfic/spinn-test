@@ -10,5 +10,9 @@ def hello_world():
 def test():
     return 'this is a new test route'
 
+@app.route('/third')
+def third(name):
+    return "hello {{name}}. nice to meet you"
+           
 if __name__ == '__main__':
     app.run(debug=True,host='0.0.0.0')
