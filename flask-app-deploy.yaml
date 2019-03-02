@@ -1,0 +1,30 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    run: flask
+  name: flask-app
+  namespace: default
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      run: flask
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        run: flask
+    spec:
+      containers:
+      - image: gcr.io/kubernetes-testing-186304/github-davidfic-spinn-test:006d10e4e5cc25bfafc74fd179f0cd170891543f
+        name: flask-app
+        ports:
+        - containerPort: 5000
+        imagePullPolicy: Always
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
